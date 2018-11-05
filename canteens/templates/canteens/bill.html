@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bill</title>
+	<script type="text/javascript">
+		value="{{ value}}"
+		value.replace(",",<br>)
+
+	</script>
+</head>
+<body>
+	<h3>Bill</h3>
+	{% if user.is_authenticated %}
+    	<p>Name: {{ user }}</p>
+    	<p>Email:{{ user.email }}</p>
+    	<p>First Name:{{ user.first_name }} Last Name:{{user.last_name}}</p>
+    	<p>Address:{{ user.profile.address }}</p>
+    	<p>College ID:{{user.profile.collegeid}}</p>
+	{% else %}
+   
+	{% endif %}
+	<p>Item Name &nbsp;&nbsp;&nbsp;&nbsp;Item Quantity &nbsp;&nbsp;&nbsp;&nbsp;Item Price&nbsp;&nbsp;&nbsp;&nbsp;Canteen Name</p>
+	<p>{{ value|linebreaks }}</p>
+	<p>Total Price:{{ price }}</p>
+	<!-- {% for val in value %}
+   		{{ val }}&nbsp;
+	{% endfor %}
+	<br>
+	{% for val in price %}
+   		{{ val }}
+	{% endfor %} -->
+</body>
+</html>

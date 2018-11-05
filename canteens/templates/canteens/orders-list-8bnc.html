@@ -1,0 +1,361 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>NITK NIGHT CANTEEN</title>
+<link href="{% static "accounts/css/bootstrap.css" %}" rel='stylesheet' type='text/css' />
+<script src="{% static "accounts/js/jquery.min.js" %}"></script>
+<link href="{% static "accounts/css/style.css" %}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<script src="{% static "accounts/js/wow.min.js" %}"></script>
+<link href="{% static "accounts/css/animate.css" %}" rel='stylesheet' type='text/css' />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+	new WOW().init();
+</script>
+<script src="{% static "accounts/js/simpleCart.js" %}"> </script>	
+<script type="text/javascript" src="{% static "accounts/js/move-top.js" %}"></script>
+<script type="text/javascript" src="{% static "accounts/js/easing.js" %}"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+				});
+			});
+</script>
+</head>
+<body>
+    <!-- header-section-starts -->
+	<div class="header">
+		<div class="container">
+			<div class="top-header">
+				<div class="logo">
+					<a href="index.html"><img src="{% static "accounts/images/nitk.png" %}" class="img-responsive" alt="" /></a>
+				</div>
+				<div class="queries" align="right">
+					<p >Availability of food is restricted to Timings:<span>7pm-2am</span><label></label></p>
+				</div>
+				<div class="header-right">
+						{% if user.is_authenticated %}
+						<div class="cart box_1">
+							<a href="/canteen/checkout">
+								<h3> <span class="simpleCart_total">₹0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span> items)<img src="{% static "accounts/images/bag.png" %}" alt=""></h3>
+							</a>	
+							<p><a href="javascript:;" class="simpleCart_empty">Empty card</a></p>
+							<div class="clearfix"> </div>
+						</div>
+						{%endif%}
+					</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+			<div class="menu-bar">
+			<div class="container">
+				<div class="top-menu">
+					<ul>
+						<li><a href="/account/" class="scroll">Home</a></li>|
+						<li><a href="/canteen/">Night canteens</a></li>|
+					
+						<div class="clearfix"></div>
+					</ul>
+				</div>
+				{% if not user.is_authenticated %}
+				<div class="login-section">
+					<ul>
+						<li><a href="/account/login">Login</a>  </li> |
+						<li><a href="/account/register">Sign Up</a> </li> |
+					
+						<div class="clearfix"></div>
+					</ul>
+				</div>
+				{%endif%}
+				{% if user.is_authenticated %}
+				<div class="login-section">
+					<ul>
+						<li><a href="/account/login">Hello {{request.user.username}}</a>  </li> |
+						<li><a href="/account/logout">Sign Out</a> </li> |
+					
+						<div class="clearfix"></div>
+					</ul>
+				</div>
+				{%endif%}
+				<div class="clearfix"></div>
+			</div>
+		</div>		
+				</div>
+
+
+	<!-- header-section-ends -->
+	<!-- content-section-starts -->
+	<div class="orders">
+	<div class="container">
+		<div class="order-top">
+			<li class="item-lists"><h4>Hot and Cold Beverages</h4>
+				<p>tea</p>
+				<P> coffe</P>
+				<P> Boost</P>
+				
+			</li>
+			<li class="item-lists">
+				<div class="special-info grid_1">
+					<h4>Price</h4>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 10.00</span></h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><a href="#">Pick</a></div>
+						</div>
+						<div class="item_name" style="display: none;">tea</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 10.00</span><h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">coffee</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 20.00</span></h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Boost</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+				
+					</div>
+				</li>
+			<div class="clearfix"></div>
+		</div>
+		<div class="order-top">
+			<li class="item-lists"><h4>Main course</h4>
+				<p>Butter chicken</p>
+				<p>Paneer Tikka</p>
+				<p>Mushroom Masala</p>
+				<p>Gobi Manchurian</p>
+			</li>
+			<li class="item-lists">
+				<div class="special-info grid_1">
+					<h4>Price</h4>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 80.00</span></h6></div>
+						</div>
+
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Butter chicken</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 70.00</span></h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Paneer Tikka</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 50.00</span></h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Mushroom Masala</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 35.00</span></h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Gobi Manchurian</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					</div>
+				</li>
+			<div class="clearfix"></div>
+		</div>
+		<div class="order-top">
+			<li class="item-lists"><h4>Rice Items</h4>
+				<p>Egg Biryani</p>
+				<p>Veg Biryani</p>
+				<p>Chicken Biryani</p>
+			</li>
+			<li class="item-lists">
+				<div class="special-info grid_1">
+					<h4>Price</h4>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 45.00</span></h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Egg Biryani</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 40.00</span></h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Veg Biriyani</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><h6><span class="item_price">Rs 65.00</span></h6></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Chicken Biriyani</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					
+					</div>
+				</li>
+			<div class="clearfix"></div>
+		</div>
+		<div class="order-top">
+			<li class="item-lists"><h4>Desserts</h4>
+				<p>Ice cream Sandwich</p>
+				<p>Nutty and Choco bar</p>
+			</li>
+			<li class="item-lists">
+				<div class="special-info grid_1">
+					<h4>Price</h4>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><span class="item_price"><h6>Rs 45.00<h6></span></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Ice cream Sandwich</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><span class="item_price"><h6>Rs 50.00</h6></span></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+						<div class="item_name" style="display: none;">Nutty and Choco bar</div>
+						<div class="item_canteen" style="display: none;">8th Block NC</div>
+							<div class="clearfix"></div>
+					</div>
+					
+					</div>
+				</li>
+			<div class="clearfix"></div>
+		</div>
+		<div class="order-top">
+			<li class="item-lists"><h4>Milkshakes</h4>
+				<p>Strawberry Milk Shake</p>
+				<p>Chocolate Milk Shake</p>
+			</li>
+			<li class="item-lists">
+				<div class="special-info grid_1">
+					<h4>Price</h4>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><span class="item_price"><h6>Rs 30.00</h6></span></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><span class="item_price"><h6>Rs 40.00</h6></span></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span><a href="#">Pick</a></span></div>
+						</div>
+							<div class="clearfix"></div>
+					</div>
+					
+					</div>
+				</li>
+			<div class="clearfix"></div>
+		</div>
+		<div class="order-top">
+			<li class="item-lists"><h4>Rotis</h4>
+				<p>Butter Roti</p>
+				<p>Paratha</p>
+			</li>
+			<li class="item-lists">
+				<div class="special-info grid_1">
+					<h4>Price</h4>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><span class="item_price"><h6>Rs 15.00</h6></span></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span class="item_price"><a href="#">pick</a></span></div>
+						</div>
+							<div class="clearfix"></div>
+					</div>
+					<div class="pre-top simpleCart_shelfItem">
+						<div class="pr-left">
+							<div class="item_add"><span class="item_price"><h6>Rs 20.00</h6></span></div>
+						</div>
+						<div class="pr-right">
+							<div class="item_add"><span class="item_price"><a href="#">pick</a></span></div>
+						</div>
+							<div class="clearfix"></div>
+					</div>
+					
+					</div>
+				</li>
+			
+			<div class="clearfix"></div>
+		</div>
+		
+		
+				</li>
+			
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+	
+	
+
+</body>
+</html>
