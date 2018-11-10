@@ -8,7 +8,7 @@ class Profile(models.Model):
     address = models.CharField(_('Address'), max_length=50, blank=True, null=True)
     token = models.CharField(_('Token'), max_length=15, unique=True, db_index=True, null=True)
     subscribed = models.CharField(_('Subscribed or not'), max_length=2, blank=True, null=True)
-    collegeid=models.CharField(_('collegeId'), max_length=16, blank=True, null=True)
+    collegeid=models.CharField(_('collegeId'), max_length=16, blank=True, null=True,unique=True)
     def set_token(self):
 	    self.token = ''.join([choice('abcdefghijklmnopqrstuvwxyz0123456789') for i in range(15)])
 

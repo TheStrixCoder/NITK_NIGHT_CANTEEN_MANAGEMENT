@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table height="100%" width="100%" border="1" style="border-collapse: collapse;">
+		
+		<tr>
+			<th colspan="2" align="center">User Name:</th>
+			<td colspan="2" align="center">{{user.username}}</td>
+		</tr>
+		<tr>
+			<th  colspan="2" align="center">User Email:</th>
+			<td colspan="2" align="center">{{user.email}}</td>
+		</tr>
+		<tr>
+			<th colspan="2" align="center">Address:</th>
+			<td colspan="2" align="center">{{ user.profile.address }}</td>
+    		
+		</tr>
+
+		<tr>
+			<th colspan="2" align="center">College ID:</th>
+			<td colspan="2" align="center">{{user.profile.collegeid}}</td>
+		</tr>
+		<tr>
+			<th align="center">Item Name</th>
+			<th align="center">Item Quantity</th>
+			<th align="center">Cost</th>
+			<th align="center">Canteen Name</th>
+		</tr>
+			{% for prod in prods %}
+       			<tr>
+       				{% for des in prod %}
+           			<td align="center">{{des}}</td>
+           			{% endfor %}
+       			</tr>
+   			{% endfor %}
+		
+	</table>
+</body>
+</html>

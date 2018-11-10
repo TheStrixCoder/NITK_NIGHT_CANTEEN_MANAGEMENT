@@ -286,7 +286,7 @@ function Cart(){
 		itemsString = "";
     	for( var current in me.items ){ 
         	var item = me.items[current];
-        	itemsString += item.name + " " + item.quantity + " " + item.price +" "+item.canteen+"<br>";
+        	itemsString += item.name + "," + item.quantity + "," + item.price +","+item.canteen+"\n";
     	}   
     	var form = document.createElement("form");
     	form.style.display = "none";

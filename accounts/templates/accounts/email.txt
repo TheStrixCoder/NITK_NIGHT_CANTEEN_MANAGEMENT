@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Item Name</th>
+			<th>Item Quantity</th>
+			<th>Cost</th>
+			<th>Canteen Name</th>
+			{% for prod in prods %}
+       			<tr>
+       				{% for des in prod %}
+           			<td>{{des}}</td>
+           			{% endfor %}
+       			</tr>
+   			{% endfor %}
+		</tr>
+	</table>
+</body>
+</html>
